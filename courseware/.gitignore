@@ -1,0 +1,38 @@
+# ========== 操作系统（必加） ==========
+.DS_Store
+Thumbs.db
+
+# ========== IDE / 编辑器 ==========
+.vscode/        # VSCode
+*.iml           # Maven模块文件
+*.swp           # Vim临时文件
+
+
+# Node.js (npm/yarn/pnpm)
+node_modules/
+dist/
+build/
+*.log
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+venv/
+env/
+
+# ========== 环境配置（含敏感信息） ==========
+.env
+.env.local
+.env.*.local
+application-local.yml   # 本地配置文件
+*.pem                   # 私钥文件
+secrets.yaml
+
+# ========== 测试 / 临时文件 ==========
+coverage/               # 测试覆盖率报告
+.nyc_output/
+tmp/
+temp/
