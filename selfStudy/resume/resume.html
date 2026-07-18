@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人简历 </title>
+  <!-- 极简风格，仅使用语义标签，无 <div> -->
+  <style>
+    /* 全局重置 & 排版 — 不使用任何 div 相关选择器 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f5f3f0;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: #1e1e2a;
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* 所有语义块共用卡片样式 — 不用类名，直接标签选择器 */
+    header, main, section, article, aside, footer, nav, figure, figcaption, details, summary {
+      background: white;
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      border: 1px solid #edeae6;
+    }
+
+    /* 标题层级 */
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      color: #0b0b14;
+      margin-bottom: 0.25rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      border-bottom: 3px solid #d4cdc4;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.4rem;
+      color: #23232e;
+      display: inline-block;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0.5rem 0 0.3rem 0;
+      color: #2c2c3a;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #3e3e4f;
+      margin: 0.2rem 0;
+    }
+
+    /* 文本及列表 */
+    p {
+      margin: 0.8rem 0;
+      color: #2c2c3a;
+    }
+
+    ul, ol {
+      padding-left: 1.6rem;
+      margin: 0.8rem 0;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* 内联小标签/强调 */
+    strong, b {
+      color: #1a1a26;
+      font-weight: 600;
+    }
+
+    em, i {
+      color: #4e4e62;
+      font-style: italic;
+    }
+
+    small, time {
+      font-size: 0.9rem;
+      color: #5f5f72;
+    }
+
+    /* 地址 & 联系 */
+    address {
+      font-style: normal;
+      background: #f8f6f3;
+      padding: 0.8rem 1.2rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin: 0.5rem 0;
+      border: 1px solid #e3ddd6;
+    }
+
+    /* 引用块 */
+    blockquote {
+      border-left: 6px solid #b8ada1;
+      padding: 1rem 1.5rem;
+      margin: 1.2rem 0;
+      background: #faf9f7;
+      border-radius: 12px;
+      font-style: italic;
+    }
+
+    /* 图片 & 图形 */
+    figure {
+      padding: 0.5rem 1rem 1rem 1rem;
+      background: transparent;
+      box-shadow: none;
+      border: none;
+      display: inline-block;
+      margin: 0.2rem 0.5rem 0.2rem 0;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 40px;
+      border: 2px solid #e3ddd6;
+    }
+
+    figcaption {
+      font-size: 0.85rem;
+      text-align: center;
+      background: transparent;
+      padding: 0.3rem 0 0 0;
+      box-shadow: none;
+      border: none;
+      color: #5f5f72;
+    }
+
+    /* 水平分割线 */
+    hr {
+      border: 0;
+      height: 2px;
+      background: linear-gradient(to right, #d4cdc4, transparent);
+      margin: 1.5rem 0;
+    }
+
+    /* 细节/折叠 */
+    details {
+      background: #fbfaf8;
+      padding: 1rem 1.8rem;
+      border: 1px solid #e3ddd6;
+    }
+
+    summary {
+      font-weight: 600;
+      cursor: pointer;
+      background: transparent;
+      padding: 0.4rem 0;
+      box-shadow: none;
+      border: none;
+      font-size: 1.1rem;
+      color: #1e1e2a;
+    }
+
+    summary:focus-visible {
+      outline: 2px solid #b8ada1;
+    }
+
+    /* 导航 */
+    nav {
+      background: #edeae6;
+      border: none;
+      padding: 0.8rem 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: #1e1e2a;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.3rem 0.2rem;
+      border-bottom: 2px solid transparent;
+      transition: 0.15s;
+    }
+
+    nav a:hover {
+      border-bottom-color: #1e1e2a;
+    }
+
+    /* 页脚 */
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #5f5f72;
+      background: #f8f6f3;
+      border: 1px solid #e3ddd6;
+      padding: 1.2rem;
+    }
+
+    /* 辅助布局 (不依赖div) */
+    .flex-row { /* 仅用于辅助显示，但无div，用header内嵌或其他方式 —— 但此处仅用原生语义 */
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem 2rem;
+    }
+
+    /* 由于不能用div，我们用 header 内 flex 布局 (header本身) */
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background: white;
+    }
+
+    header > *:first-child {
+      flex: 1 1 220px;
+    }
+
+    /* aside 侧边栏风格 */
+    aside {
+      background: #faf8f6;
+      border-left: 6px solid #cbc2b8;
+    }
+
+    /* article 内部段落微调 */
+    article p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* 时间线样式 */
+    .timeline-item {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem 1.5rem;
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px dashed #ddd6cf;
+    }
+
+    .timeline-item:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .timeline-item > strong {
+      min-width: 110px;
+    }
+
+    /* 联系方式微调 */
+    address a {
+      color: #1e1e2a;
+      text-decoration: none;
+      border-bottom: 1px dotted #b8ada1;
+    }
+
+    address a:hover {
+      border-bottom-color: #1e1e2a;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      body { padding: 1rem 0.8rem; }
+      section, article, header, footer, aside, nav, details {
+        padding: 1.2rem 1.2rem;
+      }
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 头部：姓名 + 职位 + 联系方式 (完全语义) -->
+  <header>
+    <group> <!-- 使用 <group> ？但HTML无此标签，改为直接用hgroup? 此处使用header内嵌h1 + p -->
+      <h1>左 湘 福</h1>
+      <p style="font-size: 1.2rem; font-weight: 400; color: #3e3e4f; margin-top: -0.2rem;">
+        <strong>java工程师</strong> · 5年经验
+      </p>
+    </group>
+    <address>
+      📍 珠海 <br>
+      📧 <a >1175542694@qq.com</a> <br>
+      📱 <a >+86 159 0747 7273</a>
+    </address>
+  </header>
+
+  <!-- 导航 (跳转锚点) -->
+  <nav aria-label="简历导航">
+    <a href="#profile">个人简介</a>
+    <a href="#skills">技术栈</a>
+    <a href="#experience">工作经历</a>
+    <a href="#education">教育背景</a>
+    <a href="#projects">项目</a>
+    <a href="#extra">更多</a>
+  </nav>
+
+  <!-- 主体内容，使用 main 包裹 -->
+  <main>
+
+    <!-- 个人简介 section -->
+    <section id="profile">
+      <h2>👤 个人简介</h2>
+      <p>
+        <strong>Java 后端开发工程师</strong>，5 年企业级系统设计与开发经验。
+        专注于 <em>高可用架构</em>、<em>微服务治理</em> 与 <em>业务流程自动化</em>。
+        善于将复杂业务需求转化为清晰、可扩展的技术方案，并推动团队技术落地。
+      </p>
+      <blockquote>
+        “ 用技术解决真实问题，让产品更有温度。 ”
+      </blockquote>
+      <p>
+        <small>⭐ 擅长：微服务架构 · 云原生 · 性能优化 · 团队协作</small>
+      </p>
+    </section>
+
+    <!-- 技能 + 亮点 使用 aside 侧边语义 -->
+    <aside id="skills">
+      <h2>🧰 技术栈</h2>
+      <ul>
+        <li><strong>编程语言：</strong> Java · JavaScript · CSS · HTML</li>
+        <li><strong>框架生态：</strong> Spring Boot · Spring Security · MyBatis / MyBatis-Plus · Activity 工作流 · Feign · Nacos</li>
+        <li><strong>中间件 & 存储：</strong> Redis · MySQL · MQTT · MongoDB · XXL-JOB · Swagger · Docker · Kubernetes </li>
+        <li><strong>工具 & 集成：</strong> Git · Maven · Jenkins · WebSocket · Nginx · Postman · Vite </li>
+        <li><strong>架构设计：</strong> 微服务 · SaaS 多租户 · 分布式事务 · 高并发处理 · 流程自动化</li>
+      </ul>
+      <hr>
+      <h3>语言</h3>
+      <ul>
+        <li>中文 · 母语</li>
+        <li>英语 · 简单沟通</li>
+      </ul>
+    </aside>
+
+    <!-- 工作经历 (article) -->
+    <section id="experience">
+        <h2>💼 工作经历</h2>
+  
+        <article>
+          <h3>Java 开发工程师 · 博彦科技有限公司</h3>
+          <p><em>外派珠海工商银行软件开发中心</em> · <time datetime="2025-05">2025.05</time> – <time datetime="2026-07">至今</time></p>
+          <!-- <ul>
+            <li>负责 <strong>智能运维平台</strong> 核心后端研发，主导环境统一视图、资源申请与工作流引擎集成。</li>
+          </ul> -->
+        </article>
+  
+        <article>
+          <h3>Java 开发工程师 · 先进数通科技有限公司</h3>
+          <p><em>外派珠海工商银行软件开发中心</em> · <time datetime="2024-04">2024.04</time> – <time datetime="2025-05">2025.05</time></p>
+          <!-- <ul>
+            <li>参与电商中台建设，基于 <strong>Spring Cloud</strong> 实现订单、库存、支付微服务。</li>
+            <li>优化 MySQL 慢查询与 Redis 缓存策略，接口响应时间降低 45%。</li>
+            <li>维护 <strong>xxl-job</strong> 定时任务调度，保障数据同步与报表生成稳定性。</li>
+          </ul> -->
+        </article>
+  
+        <article>
+          <h3>Java 开发工程师 · 中电信数智科技有限公司</h3>
+          <p><time datetime="2022-03">2022.03</time> – <time datetime="2024-03">2024.03</time></p>
+          <!-- <li>重构 <strong>多租户 SaaS</strong> 园区管理平台，优化设备接入、数据采集与大屏展示性能。</li>
+          <li>推动团队技术规范建设，引入 <strong>Spring Security</strong> 权限模型与 <strong>XXL-JOB</strong> 分布式调度。</li> -->
+        </article>
+  
+        <article>
+          <h3>Java 开发工程师 · 双叶软件科技有限公司</h3>
+          <p><time datetime="2020-04">2020.04</time> – <time datetime="2021-12">2021.12</time></p>
+        </article>
+      </section>
+
+    <!-- 教育背景 + 证书 (section) -->
+    <section id="education">
+      <h2>🎓 教育背景</h2>
+      <article>
+        <h3>湖南理工大学 · 通信工程</h3>
+        <p><time datetime="2014-09">2014.09</time> – <time datetime="2018-06">2018.06</time> · 上海</p>
+        <!-- <ul>
+          <li>GPA: 3.8/4.0 · 优秀毕业生</li>
+          <li>课程：分布式系统、数据库、算法设计、人机交互</li>
+        </ul> -->
+      </article>
+      <!-- <aside style="margin-top: 1rem; background: #f8f6f3; border-left-color: #b8ada1;">
+        <h4>📜 认证</h4>
+        <ul>
+          <li>AWS Certified Solutions Architect – Associate</li>
+          <li>Google Professional Cloud Developer</li>
+        </ul>
+      </aside> -->
+    </section>
+
+    <!-- 项目精选 (使用 details + summary) 有趣且语义 -->
+    <section id="projects">
+      <h2>📁 项目精选</h2>
+
+      <details>
+        <summary><strong>「 智能运维平台 」</strong> — 核心支撑平台 (工行软开中心)</summary>
+        <ul>
+          <li>基于 <strong>Spring Boot + Activiti</strong> 构建，实现资源申请、审批、通知全链路自动化流转。</li>
+          <li>主导设备全生命周期管理，基于 <strong>MyBatis-Plus</strong> 实现复杂状态机流转控制。</li>
+          <li>设计支持万级数据的批量导入/导出方案，利用 <strong>EasyExcel + 异步线程池</strong> 避免 OOM 风险。</li>
+        </ul>
+      </details>
+    
+      <details>
+        <summary><strong>「 智慧园区管理平台 」</strong> — SaaS多租户架构</summary>
+        <ul>
+          <li>面向电信级多租户场景，通过 <strong>MQTT</strong> 协议实现海量异构物联网设备数据采集与分析。</li>
+          <li>基于 <strong>AOP + JDK动态代理</strong> 实现多租户上下文数据源动态路由，保障租户数据隔离。</li>
+          <li>主导多厂商设备接口联调，运用 <strong>策略模式</strong> 重构接入层，实现核心业务与第三方协议解耦。</li>
+        </ul>
+      </details>
+    
+      <details>
+        <summary><strong>「 马拉松报名小程序 」</strong> — 赛事数字化平台</summary>
+        <ul>
+          <li>独立负责后端架构搭建，整合 <strong>微信小程序 SDK</strong> 实现一键授权登录与报名状态机流转。</li>
+          <li>通过 <strong>Redis</strong> 缓存与短信 API 整合，有效支撑赛事报名高峰期的并发访问与实时通知。</li>
+          <li>基于 <strong>MyBatis-Plus</strong> 批量操作与分页查询，支撑万级报名数据的流畅管理与审核。</li>
+        </ul>
+      </details>
+    
+      <details>
+        <summary><strong>「 水羊集团综合管理平台 」</strong> — 企业智慧化管控</summary>
+        <ul>
+          <li>基于 <strong>Spring Security</strong> 设计双 Token 认证架构，配合 Redis 实现用户无感刷新与黑名单管理。</li>
+          <li>设计支持多层级区域、部门、设备关联的 <strong>树形数据模型</strong>，优化递归查询逻辑提升检索性能。</li>
+          <li>基于 <strong>AOP 切面</strong> 重构操作日志模块，实现关键业务自动拦截、耗时统计与异步持久化。</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- 其他信息：兴趣 / 座右铭 (figure) -->
+    <section id="extra">
+      <!-- <h2>✨ 更多</h2> -->
+      <figure>
+        <!-- 纯装饰头像 —— 用svg或者emoji 代表 -->
+        <figcaption>
+          <span style="font-size: 3.5rem; line-height: 1.2;">🧑‍💻</span>
+          <br>
+          <span style="font-weight: 500;">开放 · 协作 · 创造</span>
+        </figcaption>
+      </figure>
+      <p>
+        <strong>兴趣：</strong>视频 · 羽毛球 · 健身<br>
+        <small>✨ 目前正在探索 <em>Java</em> 与 <em>AI 辅助编程</em> 的交集。</small>
+      </p>
+      <hr>
+      <blockquote style="border-left-color: #a39487;">
+        “ 活到老，学到老。 ”
+      </blockquote>
+    </section>
+
+  </main>
+
+  <!-- 页脚 -->
+  <footer>
+    <p>
+      <small>📄 左湘福 · 个人简历 · 语义化骨架 · 纯 HTML (无 <code>&lt;div&gt;</code>)</small><br>
+      <small>更新于 <time datetime="2026-07-05">2026年7月</time> · 欢迎交流</small>
+    </p>
+  </footer>
+
+</body>
+</html>
