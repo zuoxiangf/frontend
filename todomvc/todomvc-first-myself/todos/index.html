@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" data-framework="vue">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="./assets/main.css"/>
+    <link rel="stylesheet" href="./assets/base.css"/>
+    <link rel="stylesheet" href="./assets/topbar.css"/>
+    <link rel="stylesheet" href="./assets/index.css"/>
+    <meta name="description" content="A TodoMVC written in Vue."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/vue.js"></script>
+    <title>TodoMVC: Vue</title>
+</head>
+<body>
+<section class="todoapp" id="root">
+
+    <header class="header">
+        <RouterLink to="/"><h1>todos</h1></RouterLink>
+        <input
+                type="text"
+                class="new-todo"
+                autofocus
+                autocomplete="off"
+                placeholder="请输入你要完成的待办?"
+                @keyup.enter="addTodo"
+        />
+    </header>
+
+    <template v-if="todos.length">
+        <section class="main">
+
+            <!--            <input type="checkbox" id="toggle-all-input"-->
+            <!--                   class="toggle-all"-->
+            <!--                   @change="handleToggleAll"-->
+            <!--                   :checked="todos.every(todo => todo.completed)"-->
+            <!--            />-->
+
+            <input type="checkbox" id="toggle-all-input"
+                   class="toggle-all"
+                   v-model="checkAllStatus"
+            />
+            <label class="toggle-all-label" htmlFor="toggle-all-input"> Toggle All Input </label>
+
+            <ul class="todo-list">
+                <li v-for="(item,index) in filteredTodos" :key="item.id"
+                    :class="{completed: item.completed, editing: item === currentEdit}">
+                    <div class="view">
+                        <input type="checkbox" class="toggle" v-model="item.completed"/>
+                        <label @dblclick="currentEdit = item">{{ item.title }}</label>
+                        <button class="destroy" @click="handleDelete(index)"></button>
+                    </div>
+                    <input
+                            class="edit"
+                            v-model="item.title"
+                            @keyup.enter="handleEditTodo(index, $event)"
+                            @blur="handleEditTodo(index, $event)"
+                            @keydown.esc="currentEdit = null"
+                    />
+                </li>
+            </ul>
+        </section>
+
+        <footer class="footer">
+        <span class="todo-count">
+            <strong>{{leftCount}}</strong> 项剩余
+        </span>
+            <ul class="filters">
+                <li>
+                    <a :class="{'selected': filterCondition === 'all'}" href="#/">所有</a>
+                </li>
+                <li>
+                    <a :class="{'selected': filterCondition === 'active'}" href="#/active "> 未完成</a>
+
+                </li>
+                <li>
+                    <a :class="{'selected': filterCondition === 'completed'}" href="#/completed "> 已完成</a>
+
+                </li>
+            </ul>
+            <button class="clear-completed" @click="handleDeleteCompleted"
+                    v-show="todos.some(todo => todo.completed)"
+            >
+                清空已完成
+            </button>
+        </footer>
+    </template>
+
+</section>
+
+
+<footer class="info">
+    <p>Double-click to edit a todo</p>
+    <p>Created by the TodoMVC Team</p>
+    <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+</footer>
+
+<script>
+    const vm = new Vue({
+        el: '#root',
+        data: {
+           /* todos: [
+                {id: 1, title: '学习vue', completed: true},
+                {id: 2, title: '学习react', completed: false},
+                {id: 3, title: '学习angular', completed: false},
+                {id: 4, title: '学习javascript', completed: true}
+            ],*/
+            todos: JSON.parse(window.localStorage.getItem('todos')) || [],
+            currentEdit: null,
+            filterCondition: ''
+        },
+        methods: {
+            handleDelete(index) {
+                this.todos.splice(index, 1)
+            },
+            addTodo(event) {
+                console.log(event.target.value.trim());
+                if (event.target.value.trim()) {
+                    this.todos.push({
+                        id: this.todos.length + 1,
+                        title: event.target.value.trim(),
+                        completed: false
+                    })
+                    window.localStorage.setItem('todos', JSON.stringify(this.todos));
+                    event.target.value = '';
+                }
+            },
+            handleEditTodo(index, event) {
+                let newTitle = event.target.value.trim();
+                if (newTitle.length) {
+                    this.todos[index].title = newTitle;
+                } else {
+                    this.todos.splice(index, 1)
+                }
+                this.currentEdit = null;
+            },
+            handleToggleAll(event) {
+                this.todos.forEach(todo => {
+                    todo.completed = event.target.checked
+                })
+            },
+            handleDeleteCompleted() {
+                this.todos = this.todos.filter(todo => !todo.completed)
+            }
+        },
+        computed: {
+            checkAllStatus: {
+                get() {
+                    return this.todos.every(todo => todo.completed)
+                },
+                set(value) {
+                    this.todos.forEach(todo => {
+                        todo.completed = value
+                    })
+                }
+            },
+            leftCount() {
+                return this.todos.filter(todo => !todo.completed).length
+            },
+            filteredTodos() {
+                if (this.filterCondition === 'active') {
+                    return this.todos.filter(todo => !todo.completed);
+                } else if (this.filterCondition === 'completed') {
+                    return this.todos.filter(todo => todo.completed);
+                } else {
+                    return this.todos;
+                }
+            }
+        },
+        watch:{
+            todos:{
+                deep:true,
+                handler(){
+                    window.localStorage.setItem('todos', JSON.stringify(this.todos));
+                }
+
+            }
+        }
+    });
+
+    window.onhashchange = function () {
+        console.log(window.location.hash.substr(2));
+        vm.filterCondition = window.location.hash.substr(2);
+    };
+    window.onhashchange();
+</script>
+</body>
+</html>
