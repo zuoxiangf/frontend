@@ -1,0 +1,76 @@
+/* ===== Element UI 风格全局基础样式 ===== */
+
+:root {
+  /* Element UI 主题规范变量 */
+  --el-color-primary: #409eff;
+  --el-bg-color-page: #f5f7fa;
+  --el-text-color-primary: #303133;
+  --el-text-color-regular: #606266;
+  --el-text-color-secondary: #909399;
+  --el-border-color: #dcdfe6;
+  --el-border-color-light: #ebeef5;
+  --el-font-size-base: 14px;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--el-bg-color-page);
+  color: var(--el-text-color-primary);
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
+  "Microsoft YaHei", Arial, sans-serif;
+  font-size: var(--el-font-size-base);
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 页面根容器：浅灰页面底色 + 内容区留白 */
+#app {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 20px;
+}
+/*
+
+// Deleted:@import "./base.css";
+// Deleted:
+// Deleted:#app {
+   // Deleted:  max-width: 1280px;
+   // Deleted:  margin: 0 auto;
+   // Deleted:  padding: 2rem;
+   // Deleted:
+   // Deleted:  font-weight: normal;
+   // Deleted:}
+// Deleted:
+// Deleted:a,
+// Deleted:.green {
+   // Deleted:  text-decoration: none;
+   // Deleted:  color: hsla(160, 100%, 37%, 1);
+   // Deleted:  transition: 0.4s;
+   // Deleted:}
+// Deleted:
+// Deleted:@media (hover: hover) {
+// Deleted:  a:hover {
+  // Deleted:    background-color: hsla(160, 100%, 37%, 0.2);
+  // Deleted:  }
+// Deleted:}
+// Deleted:
+// Deleted:@media (min-width: 1024px) {
+// Deleted:  body {
+  // Deleted:    display: flex;
+  // Deleted:    place-items: center;
+  // Deleted:  }
+// Deleted:
+// Deleted:  #app {
+   // Deleted:    display: grid;
+   // Deleted:    grid-template-columns: 1fr 1fr;
+   // Deleted:    padding: 0 2rem;
+   // Deleted:  }
+// Deleted:}*/

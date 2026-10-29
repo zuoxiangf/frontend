@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3505eb68-2fb2-400c-a4ac-ca6a21254ed3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/el_study_01/src/components/Edit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../js_study/jsDemo/src/test/java/com/example/jsdemo/Demo1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../js_study/jsDemo/src/test/java/com/example/jsdemo/Demo2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../js_study/jsDemo/src/test/java/com/example/jsdemo/Demo3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../js_study/jsDemo/web/Vue实现-购物车总价计算.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../js_study/jsDemo/web/axios发送请求.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../js_study/jsDemo/web/demo1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../js_study/jsDemo/web/demo2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../js_study/jsDemo/web/demo3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../js_study/jsDemo/web/demo4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../js_study/jsDemo/web/js/vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todomvc/todomvc-first-myself/todos_2/index2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todomvc/todomvc-vue/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todomvc/todomvc-vue/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todomvc/todomvc-vue/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todomvc/todomvc-vue/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todomvc/todomvc-vue/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todomvc/todomvc-vue/vite.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../courseware/zero-to-tech-4-1/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../courseware/zero-to-tech-4-1/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../courseware/zero-to-tech-4-4/backend/python_code/practice/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/../courseware/zero-to-tech-4-4/backend/python_code/practice/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../todomvc/todomvc-first-myself/todos/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../todomvc/todomvc-first-myself/todos/index.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Composition API Component" />
+        <option value="Vue Options API Component" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\repository" />
+        <option name="mavenHome" value="E:\java\maven\apache-maven-3.6.3\apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="E:\java\maven\apache-maven-3.6.3\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="3LNf6rX6ojSmkvUx9mWHlAGBI8L" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/ZUO/frontend/el_study",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "E:\\java\\idea\\idea2023\\IntelliJ IDEA 2023.1.6\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "vue.recent.templates": [
+      "Vue Composition API Component",
+      "Vue Options API Component"
+    ]
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3505eb68-2fb2-400c-a4ac-ca6a21254ed3" name="Changes" comment="" />
+      <created>1793299273854</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1793299273854</updated>
+      <workItem from="1793299274970" duration="10133000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
